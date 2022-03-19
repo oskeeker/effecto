@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Effecto</title>
+</head>
+<body>
+<p><span id='date-time'></span></p>
+</body>
+</html>
+<script>
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    const currentDate = new Date();
+    // const effectoDay = new Date(2022, 2, 29, 20, 0, 0, 0);
+    const effectoDay = new Date('29 March 2022 20:15:00');
+
+    // document.getElementById('date-time').innerHTML=dt;
+
+
+    if (currentDate.getFullYear() === effectoDay.getFullYear() &&
+        currentDate.getMonth() === effectoDay.getMonth() &&
+        currentDate.getDate() === effectoDay.getDate()) {
+        document.getElementById('date-time').innerHTML = "Today is Effecto Day!!!";
+    } else {
+        document.getElementById('date-time').innerHTML = "Sadly, today is not Effecto Day." +
+            " Next Effecto Day will be on "
+            + effectoDay.toDateString() + " at " + effectoDay.getHours() + ":" +
+            (effectoDay.getMinutes() < 10 ? '0' : '') + effectoDay.getMinutes();
+    }
+
+</script
+>
