@@ -1,17 +1,32 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Effecto</title>
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
-<p><span id='date-time'></span></p>
+<div class="countdown"><p><span id='date-time'></span></p></div>
+<div class='pizza'>
+    <div class='slice'></div>
+    <div class='slice'></div>
+    <div class='slice'></div>
+    <div class='slice'></div>
+    <div class='slice'></div>
+    <div class='slice'></div>
+    <div class='slice'></div>
+    <div class='slice'></div>
+    <div class='slice'></div>
+    <div class='slice'></div>
+    <div class='slice'></div>
+    <div class='slice'></div>
+    <div class='slice'></div>
+</div>
+
 </body>
 </html>
 <script>
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    ];
     const currentDate = new Date();
     const effectoDay = new Date('29 March 2022 20:00:00');
 
@@ -26,5 +41,4 @@
             (effectoDay.getMinutes() < 10 ? '0' : '') + effectoDay.getMinutes();
     }
 
-</script
->
+</script>
