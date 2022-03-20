@@ -37,8 +37,7 @@
         currentDate.getDate() === effectoDay.getDate()) {
         document.getElementById('date-time').innerHTML = "Today is Effecto Day!!!";
     } else {
-        document.getElementById('date-time').innerHTML = "Sadly, today is not Effecto Day." +
-            " Next Effecto Day will be on "
+        document.getElementById('date-time').innerHTML = "Next Effecto Day will be on "
             + effectoDay.toDateString() + " at " + effectoDay.getHours() + ":" +
             (effectoDay.getMinutes() < 10 ? '0' : '') + effectoDay.getMinutes();
     }
