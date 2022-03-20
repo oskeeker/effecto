@@ -1,6 +1,3 @@
-countdown {
-  position: absolute;
-}
 body {
   height: 100vh;
   width: 100vw;
@@ -26,8 +23,8 @@ body:before {
 }
 body p {
   position: absolute;
-  bottom: 600px;
-  right: 160px;
+  bottom: 150px;
+  right: 165px;
   color: #ffdc73;
   font-size: 25px;
 }
