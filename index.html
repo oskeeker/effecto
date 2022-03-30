@@ -7,8 +7,21 @@
 
 </head>
 <body>
-<div class='countdown'>
-    <p id='date-time'></p>
+<!--<div class='date'>-->
+<!--    <p id='date-time'></p>-->
+    <p id="countdown" class="timer"></p>
+<!--</div>-->
+
+<div id="day" class="day-class"><h1 id="day-text" ></h1></div>
+<div id="grid" class="grid-container">
+    <div class="grid-item">Days</div>
+    <div class="grid-item">Hours</div>
+    <div class="grid-item">Minutes</div>
+    <div class="grid-item">Seconds</div>
+    <div class="grid-item-5"><h2 id="days"></h2></div>
+    <div class="grid-item-6"><h2 id="hours"></h2></div>
+    <div class="grid-item-7"><h2 id="minutes"></h2></div>
+    <div class="grid-item-8"><h2 id="seconds"></h2></div>
 </div>
 <div class='pizza'>
     <div class='slice'></div>
@@ -28,18 +41,42 @@
 
 </body>
 </html>
-<script>
+<script defer>
     const currentDate = new Date();
     const effectoDay = new Date('26 April 2022 20:00:00');
+    let seconds;
 
     if (currentDate.getFullYear() === effectoDay.getFullYear() &&
         currentDate.getMonth() === effectoDay.getMonth() &&
         currentDate.getDate() === effectoDay.getDate()) {
-        document.getElementById('date-time').innerHTML = "Today is Effecto Day!!!";
+        document.getElementById('day-text').innerHTML = "Today is Effecto Day!!!";
+        document.getElementById('grid').style.visibility = "hidden";
     } else {
-        document.getElementById('date-time').innerHTML = "Next Effecto Day will be on "
-            + effectoDay.toDateString() + " at " + effectoDay.getHours() + ":" +
-            (effectoDay.getMinutes() < 10 ? '0' : '') + effectoDay.getMinutes();
+        seconds = Math.trunc(Math.abs(currentDate.getTime() - new Date(effectoDay.getTime())) / 1000);
+        countdownTimer = setInterval('timer()', 1000);
     }
 
+
+    function timer() {
+        const days = Math.floor(seconds / 24 / 60 / 60);
+        const hoursLeft = Math.floor((seconds) - (days * 86400));
+        const hours = Math.floor(hoursLeft / 3600);
+        const minutesLeft = Math.floor((hoursLeft) - (hours * 3600));
+        const minutes = Math.floor(minutesLeft / 60);
+        const remainingSeconds = seconds % 60;
+
+        function pad(n) {
+            return (n < 10 ? "0" + n : n);
+        }
+        document.getElementById('days').innerHTML = pad(days);
+        document.getElementById('hours').innerHTML = pad(hours);
+        document.getElementById('minutes').innerHTML = pad(minutes);
+        document.getElementById('seconds').innerHTML = pad(remainingSeconds);
+        if (seconds === 0) {
+            clearInterval(countdownTimer);
+            document.getElementById('countdown').innerHTML = "Completed";
+        } else {
+            seconds--;
+        }
+    }
 </script>
